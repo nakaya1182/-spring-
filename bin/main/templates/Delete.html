@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=width=960,initial-scale=1" charset="UTF-8">
+<link rel="stylesheet" media="(max-width: 768px)" href="style-768.css">
+<link rel="stylesheet" media="(max-width: 320px)" href="style-320.css">
+<title>住所録管理システム</title>
+</head>
+<body>
+<tr><big><b>住所録管理システム：削除確認</b></big></tr>
+<body>
+
+<p>
+削除しますか？
+<table th:object="${user}">
+	<tr>
+	<td>名前:</td>
+	<td th:text="*{name}"></td>
+	</tr>
+	<tr>
+	<td>住所:</td>
+	<td th:text="*{add}"></td>
+	</tr>
+	<tr>
+	<td>電話番号:</td>
+	<td th:text="*{tel}"></td>
+	</tr>
+</table>
+<form method="post" th:action="@{/Insert}" th:object="${user}">
+<input type="hidden" name="id" th:value="*{id}">
+<input type="hidden" name="flag" th:value="*{flag=1}">
+<input type="submit" value="削除">
+</form>
+
+<a th:href="@{/back}">
+<button type="submit">戻る</button>
+</a>
+
+
+</body>

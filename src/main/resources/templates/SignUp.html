@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=width=960,initial-scale=1" charset="UTF-8">
+<link rel="stylesheet" media="(max-width: 768px)" href="style-768.css">
+<link rel="stylesheet" media="(max-width: 320px)" href="style-320.css">
+<title>住所録管理システム</title>
+<style type="text/css">@import url(css/main.css);</style>
+</head>
+<body>
+<tr><big><b>住所録管理システム：新規登録</b></big></tr>
+
+<div id="global">
+
+<form th:action="@{/signUpConfirmation}" th:object="${user}" method="post">
+	<label style="text-align: Center">　名前　：<input type="text" id="name" name="name" maxlength='16' required></label><br>
+	<label style="text-align: Center">　住所　：<input size="70" type="text" id="add" name="add" maxlength='60' required></label><br>
+	<label style="text-align: Center">電話番号：<input type="text" id="tel" name="tel" maxlength='16' ></label><br>
+<br>
+<input  name="submit" type="submit" value="確認" />
+</form>
+<a th:href="@{/back}">
+<button type="submit">戻る</button>
+</a>
+
+</head>
+<body>
+
+</body>
+</html>

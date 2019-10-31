@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=width=960,initial-scale=1" charset="UTF-8">
+<link rel="stylesheet" media="(max-width: 768px)" href="style-768.css">
+<link rel="stylesheet" media="(max-width: 320px)" href="style-320.css">
+<title>住所録管理システム</title>
+</head>
+<body>
+<tr><big><b>住所録管理システム：住所録登録確認</b></big></tr>
+<body>
+
+<p>
+
+<table th:object="${user}">
+	<tr>
+	<td>名前:</td>
+	<td th:text="*{name}"></td>
+	</tr>
+	<tr>
+	<td>住所:</td>
+	<td th:text="*{add}"></td>
+	</tr>
+	<tr>
+	<td>電話番号:</td>
+	<td th:text="*{tel}"></td>
+	</tr>
+</table>
+
+<form method="post" th:action="@{/Insert}" th:object="${user}">
+<input type="hidden" name="id" th:value="*{id}">
+<input type="hidden" name="name" th:value="*{name}">
+<input type="hidden" name="add" th:value="*{add}">
+<input type="hidden" name="tel" th:value="*{tel}">
+<input type="submit" value="登録">
+</form>
+
+<a th:href="@{/edit/{id}(id=*{id})}" th:object="${user}">
+<button type="submit">戻る</button>
+</a>
+
+
+</body>
